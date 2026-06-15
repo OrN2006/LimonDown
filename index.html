@@ -12,8 +12,8 @@
     
     <div id="start-screen" class="screen active">
         <h1>🍖 המצוד אחר החלבון!</h1>
-        <p class="subtitle">הוראה מהמפקדת: המטבחונים ריקים מבשר. צאי לסרוק את מדורים א', ב' ו-ג' ופשטו על המקררים!</p>
-        <p><strong>חוקים:</strong> לחצי על המדורים כדי לעבור ביניהם. אספי בשר (🥩, 🍗) והימנעי מחסה (🥬). <br><br>🌟 <strong>חפשי את הלימון המיוחד (🍋) לבונוס נקודות מטורף!</strong></p>
+        <p class="subtitle">הוראה מהמפקדת: המטבחונים ריקים. צאי לפשט על מדורי חץ, קלע וכיפה!</p>
+        <p><strong>חוקים:</strong> האוכל יצוץ מעל שלושת הבתים של המדורים. לחצי על הבשר (🥩, 🍗) והימנעי מחסה (🥬). <br><br>🌟 <strong>חפשי את הלימון המיוחד (🍋) לבונוס נקודות מטורף!</strong></p>
         <button class="btn-main" onclick="startGame()">מתחילים בסריקה 🫡</button>
     </div>
 
@@ -23,14 +23,33 @@
             <div>🥩 חלבון: <span id="score-val">0</span></div>
         </div>
 
-        <div class="tabs">
-            <button class="tab-btn active" id="tab-א" onclick="switchMador('א')">מדור א'</button>
-            <button class="tab-btn" id="tab-ב" onclick="switchMador('ב')">מדור ב'</button>
-            <button class="tab-btn" id="tab-ג" onclick="switchMador('ג')">מדור ג'</button>
-        </div>
-
-        <div class="kitchen-zone" id="kitchen">
+        <div class="game-zone">
+            <div class="sky-zone" id="sky"></div>
+            
+            <div class="houses-row">
+                <div class="house" id="house-arrow">
+                    <div class="roof"></div>
+                    <div class="house-body">
+                        <span class="house-icon">🏹</span>
+                        <span class="house-name">חץ</span>
+                    </div>
+                </div>
+                <div class="house" id="house-sling">
+                    <div class="roof"></div>
+                    <div class="house-body">
+                        <span class="house-icon">🎯</span>
+                        <span class="house-name">קלע</span>
+                    </div>
+                </div>
+                <div class="house" id="house-dome">
+                    <div class="roof"></div>
+                    <div class="house-body">
+                        <span class="house-icon">🛡️</span>
+                        <span class="house-name">כיפה</span>
+                    </div>
+                </div>
             </div>
+        </div>
     </div>
 
     <div id="end-screen" class="screen">
@@ -43,6 +62,6 @@
 
 </div>
 
-<script href="script.js" src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
