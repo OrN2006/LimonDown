@@ -2,19 +2,21 @@
     --primary: #4A5D4E; /* ירוק זית צבאי */
     --accent: #D97706;
     --bg: #F3F4F6;
+    --house-color: #E5E7EB;
+    --roof-color: #9CA3AF;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg);
     margin: 0;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     user-select: none;
 }
 
 .container {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
     background: white;
     padding: 20px;
@@ -22,16 +24,8 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-h1 { 
-    color: var(--primary); 
-    margin-bottom: 5px; 
-}
-
-.subtitle { 
-    color: #666; 
-    font-size: 0.9rem; 
-    margin-bottom: 20px; 
-}
+h1 { color: var(--primary); margin-bottom: 5px; }
+.subtitle { color: #666; font-size: 0.9rem; margin-bottom: 20px; }
 
 .stats {
     display: flex;
@@ -44,53 +38,90 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* כפתורי המדורים */
-.tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    background: #D1D5DB;
-    color: #374151;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.tab-btn.active {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.05);
-}
-
-/* אזור המטבחון והפריטים */
-.kitchen-zone {
-    height: 220px;
+/* זירת המשחק המשולבת */
+.game-zone {
     background: #FEF3C7;
     border: 3px dashed var(--primary);
     border-radius: 12px;
     position: relative;
-    overflow: hidden;
+    height: 380px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
 }
 
+/* אזור השמיים שבו האוכל צץ */
+.sky-zone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 240px; /* מעל הבתים */
+    z-index: 2;
+}
+
+/* שורת הבתים */
+.houses-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 10px 10px 10px;
+    z-index: 1;
+}
+
+/* מבנה הבית */
+.house {
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* גג הבית */
+.roof {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 35px solid var(--roof-color);
+}
+
+/* גוף הבית */
+.house-body {
+    width: 100%;
+    height: 90px;
+    background: var(--house-color);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 -5px 0 rgba(0,0,0,0.1);
+    border: 1px solid #D1D5DB;
+}
+
+.house-icon {
+    font-size: 1.8rem;
+    margin-bottom: 2px;
+}
+
+.house-name {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #374151;
+}
+
+/* פריטי האוכל */
 .food-item {
-    font-size: 4rem;
+    font-size: 3.5rem;
     position: absolute;
     cursor: pointer;
     animation: popUp 0.4s ease-out;
     transition: transform 0.1s;
 }
 
-/* אפקט הבהוב מיוחד ללימון בונוס */
 .lemon-bonus {
     animation: popUp 0.4s ease-out, pulse 0.6s infinite alternate;
 }
@@ -107,17 +138,12 @@ h1 {
 
 @keyframes pulse {
     0% { transform: scale(1); }
-    100% { transform: scale(1.2); }
+    100% { transform: scale(1.15); }
 }
 
-/* מסכי פתיחה וסיום */
-.screen {
-    display: none;
-}
-
-.screen.active {
-    display: block;
-}
+/* מסכים */
+.screen { display: none; }
+.screen.active { display: block; }
 
 .btn-main {
     background: var(--accent);
@@ -129,9 +155,5 @@ h1 {
     border-radius: 30px;
     cursor: pointer;
     margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-.btn-main:hover { 
-    background: #B45309; 
-}
+.btn-main:hover { background: #B45309; }
