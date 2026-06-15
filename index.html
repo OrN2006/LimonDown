@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המצוד אחר החלבון!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="container">
+    
+    <div id="start-screen" class="screen active">
+        <h1>🍖 המצוד אחר החלבון!</h1>
+        <p class="subtitle">הוראה מהמפקדת: המטבחונים ריקים מבשר. צאי לסרוק את מדורים א', ב' ו-ג' ופשטו על המקררים!</p>
+        <p><strong>חוקים:</strong> לחצי על המדורים כדי לעבור ביניהם. אספי בשר (🥩, 🍗) והימנעי מחסה (🥬). <br><br>🌟 <strong>חפשי את הלימון המיוחד (🍋) לבונוס נקודות מטורף!</strong></p>
+        <button class="btn-main" onclick="startGame()">מתחילים בסריקה 🫡</button>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="stats">
+            <div>⏱️ זמן: <span id="time-left">30</span></div>
+            <div>🥩 חלבון: <span id="score-val">0</span></div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" id="tab-א" onclick="switchMador('א')">מדור א'</button>
+            <button class="tab-btn" id="tab-ב" onclick="switchMador('ב')">מדור ב'</button>
+            <button class="tab-btn" id="tab-ג" onclick="switchMador('ג')">מדור ג'</button>
+        </div>
+
+        <div class="kitchen-zone" id="kitchen">
+            </div>
+    </div>
+
+    <div id="end-screen" class="screen">
+        <h1>🏁 הסריקה הסתיימה!</h1>
+        <p class="subtitle">התוצאות הועברו לרס"ר</p>
+        <h2>צברת <span id="final-score">0</span> נקודות חלבון!</h2>
+        <p id="feedback-text"></p>
+        <button class="btn-main" onclick="startGame()">סבב מטבחונים נוסף 🔄</button>
+    </div>
+
+</div>
+
+<script href="script.js" src="script.js"></script>
+</body>
+</html>
